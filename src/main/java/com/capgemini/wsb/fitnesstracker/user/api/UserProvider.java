@@ -30,4 +30,11 @@ public interface UserProvider {
      */
     List<User> findAllUsers();
 
+    /**
+     * Deletes user by ID.
+     *
+     * @param userId The ID of the user to be deleted.
+     */
+    void deleteUserById(Long userId);
+
 }

@@ -4,8 +4,8 @@ Zadania proszę realizować zgodnie z własnym tempem. Zadania mają pomóc w pr
 
 ## ZADANIE 0
 - Konfiguracja środowiska, wdrożenie do projektu.
-- Konfiguracja prywatnego repozytorium (udostępnienie dostępu prowadzącemu do prywatnego repozytorium z projektem (link) i bieżącym postępem). 
-- Hosting: Rekomendacja Github.com
+- Konfiguracja prywatnego repozytorium (udostępnienie dostępu prowadzącemu do prywatnego repozytorium z projektem (link) i bieżącym postępem).
+- Hosting: Rekomendacja Github.com (proszę o wykonanie FORKa https://github.com/wkoszela/CapWSB-FitnessTracker)
 
 ## ZADANIE 1. Sieciowe API do operacji typu CRUD na klientach
 
@@ -17,7 +17,7 @@ Jako użytkownik systemu, chcę mieć możliwość zarządzania użytkownikami s
 - móc wprowadzać nowych użytkowników do systemu
 - móc usuwać użytkowników z systemu
 - móc aktualizować użytkowników
--
+
 
 ### Wymagania funkcjonalne
 
@@ -41,17 +41,14 @@ Stworzone API powinno pozwalać na:
   domyślne, pobierające dane za pomocą `findAll()` oraz przetwarzające je za pomocą strumieni (`Stream`). Przykład
   znaleźć można w `UserRepository`
 - [ ] rozwiązanie powinno spełniać zasady SOLID
-- [ ] rozwiązanie powinno być pokryte testami jednostkowymi (>80%)
-- [ ] OPCJONALNE rozwiązanie powinno implementować logikę potrzebną do spełnienia już
-  istniejących [testów integracyjnych API]
-  . NIE należy zmieniać logiki tych testów.
+- [ ] OPCJONALNE rozwiązanie powinno być pokryte testami jednostkowymi (>80%)
 - [ ] rozwiązanie powinno być odpowiednio zhermetyzowane (nie udostępniać funkcjonalności pozostałym pakietom programu)
 - [ ] kod powinien być odpowiednio udokumentowany za pomocą JavaDoc
 - [ ] do kodu powinna zostać dołączona wyeksportowana kolekcja zapytań z programu Postman, pozwalająca przetestować
   stworzone API
 - [ ] rozwiązanie powinno wykorzystywać rekordy (Java 16+) do definicji obiektów transferu danych (DTO)
 
-## ZADANIE 2: Zabezpieczenie API (Opcjonalnie)
+## ZADANIE 2: Zabezpieczenie API [ZAAWANSOWANE] (Opcjonalnie)
 
 ### Potrzeba biznesowa:
 
