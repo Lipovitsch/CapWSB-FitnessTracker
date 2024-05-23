@@ -32,8 +32,8 @@ class UserServiceImpl implements UserService, UserProvider {
     }
 
     @Override
-    public Optional<User> getUserByEmail(final String email) {
-        return userRepository.findByEmail(email);
+    public List<User> getUserByEmail(final String email) {
+        return userRepository.findByPartialEmailMatchIgnoreCase(email);
     }
 
     @Override
@@ -42,6 +42,27 @@ class UserServiceImpl implements UserService, UserProvider {
     }
 
     @Override
-    public void deleteUserById(Long userId) { userRepository.deleteById(userId); }
+    public List<User> getUsersOlderThanSpecifiedAge(final int age) {
+        return userRepository.findAll().stream()
+                .filter(user -> user.getAge() > age)
+                .toList();
+    }
+
+    @Override
+    public User updateUser(final Long userId, final User user) {
+        log.info("Updating User with ID {}", userId);
+        if (userRepository.findById(userId).isEmpty()) {
+            log.info("No existing User with id {} has been found, creating new User", userId);
+            return createUser(user);
+        }
+        user.setId(userId);
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(final Long userId) {
+        log.info("Deleting User with ID {}", userId);
+        userRepository.delete(userRepository.findById(userId).get());
+    }
 
 }

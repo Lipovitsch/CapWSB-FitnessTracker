@@ -10,3 +10,11 @@ record UserDto(@Nullable Long Id, String firstName, String lastName,
                String email) {
 
 }
+
+record UserDtoFirstName(@Nullable Long Id, String firstName) {
+
+}
+
+record UserDtoEmail(@Nullable Long Id, String email) {
+
+}

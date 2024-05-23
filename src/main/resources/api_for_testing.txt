@@ -1,0 +1,49 @@
+Get all users
+    localhost:8080/v1/users
+
+Get user details by id
+    localhost:8080/v1/users/4
+
+Get user details by email
+    localhost:8080/v1/users/email/jan
+
+Get users older than specified age
+    localhost:8080/v1/users/age/50
+
+Add user
+    localhost:8080/v1/users/add
+    {
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "birthdate": "1990-04-15",
+      "email": "jan.kowalski2@example.com"
+    }
+
+Delete user by id
+    localhost:8080/v1/users/delete/3
+
+Update user by id
+    localhost:8080/v1/users/update/4
+    {
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "birthdate": "1990-04-15",
+      "email": "jan.kowalski1@example.com"
+    }
+
+Get all trainings
+    localhost:8080/v1/trainings
+
+Get all trainings for user by id
+    localhost:8080/v1/trainings/user/5
+
+Create new training
+    localhost:8080/v1/trainings/add
+    {
+        "user_id": 1,
+        "startTime": "2024-05-23 12:00:00",
+        "endTime": "2024-05-23 12:30:00",
+        "activityType": "WALKING",
+        "distance": 20,
+        "averageSpeed": 6.2
+    }

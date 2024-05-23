@@ -1,5 +1,6 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ public interface UserProvider {
      * @param email The email of the user to be searched
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
-    Optional<User> getUserByEmail(String email);
+    List<User> getUserByEmail(String email);
 
     /**
      * Retrieves all users.
@@ -31,10 +32,10 @@ public interface UserProvider {
     List<User> findAllUsers();
 
     /**
-     * Deletes user by ID.
+     * Retrieves all users older than a specified age.
      *
-     * @param userId The ID of the user to be deleted.
+     * @param age The age to compare against
+     * @return A list of users older than the specified age
      */
-    void deleteUserById(Long userId);
-
+    List<User> getUsersOlderThanSpecifiedAge(int age);
 }
