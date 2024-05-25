@@ -45,7 +45,7 @@ class UserController {
                           .map(userMapper::toDto)
                           .toList();
     }
-
+    
     @PostMapping("/add")
     public User addUser(@RequestBody UserDto userDto) {
         return userService.createUser(userMapper.toEntity(userDto));
