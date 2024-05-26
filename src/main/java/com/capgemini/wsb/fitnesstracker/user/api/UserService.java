@@ -10,7 +10,7 @@ public interface UserService {
     /**
      * Creates a new user.
      *
-     * @param user The user entity to be created. This object should contain the necessary information for creating a new user.
+     * @param user The user entity to be created.
      * @return The created User entity.
      */
     User createUser(User user);
@@ -26,8 +26,8 @@ public interface UserService {
      * Updates an existing user or creates a new one if the user with the given ID does not exist.
      *
      * @param id The ID of the user to be updated.
-     * @param entity The User entity that contains the updated information. This object should contain the new values for the user's attributes.
+     * @param user The User entity that contains the updated information.
      * @return The updated User entity.
      */
-    User updateUser(Long id, User entity);
+    User updateUser(Long id, User user);
 }

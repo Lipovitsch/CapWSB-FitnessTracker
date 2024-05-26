@@ -9,11 +9,11 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "users")
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class User {
 
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Nullable
@@ -41,10 +41,6 @@ public class User {
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.email = email;
-    }
-
-    public int getAge() {
-        return LocalDate.now().getYear() - birthdate.getYear();
     }
 }
 

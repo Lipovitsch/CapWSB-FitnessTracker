@@ -6,9 +6,12 @@ import jakarta.annotation.Nullable;
 
 import java.util.Date;
 
-record TrainingDto(@Nullable Long id, Long user_id,
-                   @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss") Date startTime,
-                   @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss") Date endTime,
+record TrainingDto(@Nullable Long id,
+                   User user, Date startTime, Date endTime,
                    ActivityType activityType, double distance, double averageSpeed) {
+}
 
+record TrainingDtoBasic(@Nullable Long id,
+                   Long userId, Date startTime, Date endTime,
+                   ActivityType activityType, double distance, double averageSpeed) {
 }

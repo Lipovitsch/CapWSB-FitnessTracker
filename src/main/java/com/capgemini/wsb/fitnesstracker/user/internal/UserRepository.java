@@ -4,6 +4,7 @@ import com.capgemini.wsb.fitnesstracker.user.api.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,18 @@ interface UserRepository extends JpaRepository<User, Long> {
     default List<User> findByPartialEmailMatchIgnoreCase(String email) {
         return findAll().stream()
                 .filter(user -> user.getEmail().toLowerCase().contains(email.toLowerCase()))
+                .toList();
+    }
+
+    /**
+     * Query searching users by date of birth. It matches by exact match.
+     *
+     * @param date date of birth of the user to search
+     * @return {@link List} containing found users or empty list if none matched
+     */
+    default List<User> findAllByDateOfBirthBefore(LocalDate date){
+        return findAll().stream()
+                .filter(user -> user.getBirthdate().isBefore(date))
                 .toList();
     }
 }

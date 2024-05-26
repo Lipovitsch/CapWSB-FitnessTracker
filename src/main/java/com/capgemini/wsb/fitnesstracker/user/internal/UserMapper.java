@@ -14,9 +14,10 @@ class UserMapper {
                            user.getEmail());
     }
 
-    UserDtoFirstName toDtoFirstName(User user) {
-        return new UserDtoFirstName(user.getId(),
-                                    user.getFirstName());
+    UserDtoSimple toDtoSimple(User user) {
+        return new UserDtoSimple(user.getId(),
+                                user.getFirstName(),
+                                user.getLastName());
     }
 
     UserDtoEmail toDtoEmail(User user) {

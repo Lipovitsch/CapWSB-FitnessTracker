@@ -19,7 +19,7 @@ public class TrainingMapper {
     TrainingDto toDto(Training training) {
         return new TrainingDto(
                 training.getId(),
-                training.getUser().getId(),
+                training.getUser(),
                 training.getStartTime(),
                 training.getEndTime(),
                 training.getActivityType(),
@@ -28,15 +28,25 @@ public class TrainingMapper {
     }
 
     Training toEntity(TrainingDto trainingDto) {
-        User user = userProvider.getUser(trainingDto.user_id())
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + trainingDto.user_id() + " not found"));
-
         return new Training(
-                user,
+                trainingDto.user(),
                 trainingDto.startTime(),
                 trainingDto.endTime(),
                 trainingDto.activityType(),
                 trainingDto.distance(),
                 trainingDto.averageSpeed());
+    }
+
+    Training toEntityBasic(TrainingDtoBasic trainingDtoBasic) {
+        User user = userProvider.getUser(trainingDtoBasic.userId())
+                .orElseThrow(() -> new IllegalArgumentException("User with id " + trainingDtoBasic.userId() + " not found"));
+
+        return new Training(
+                user,
+                trainingDtoBasic.startTime(),
+                trainingDtoBasic.endTime(),
+                trainingDtoBasic.activityType(),
+                trainingDtoBasic.distance(),
+                trainingDtoBasic.averageSpeed());
     }
 }
